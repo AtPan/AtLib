@@ -1,4 +1,5 @@
 .cache/
 bin/
+*.o
 atlib_dox.cfg
 compile_commands.json
