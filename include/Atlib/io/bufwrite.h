@@ -3,6 +3,7 @@
 
 #include "Atlib/types.h"
 #include <bits/types/FILE.h>
+#include <stdio.h>
 
 typedef __builtin_va_list va_list;
 
@@ -149,5 +150,26 @@ extern void atlib_bufwrite_write_i32(bufwrite_t *__restrict bw, i32 v);
  * @param v Bytes to write to @c bw.
  */
 extern void atlib_bufwrite_write_i64(bufwrite_t *__restrict bw, i64 v);
+
+/**
+ * @brief Finds the byte position of the current stream.
+ * @param bw Pointer to the stream.
+ * @returns Byte position of the current stream.
+ */
+static inline usize atlib_bufwrite_pos(const bufwrite_t * bw) { return ftell(bw->fh) + __ATLIB_BUFWRITE_SIZE - bw->to_write; }
+
+/**
+ * @brief Finds the byte position of the unbuffered stream.
+ * @param bw Pointer to the stream.
+ * @returns Byte position of the current underlying stream.
+ */
+static inline usize atlib_bufwrite_fpos(const bufwrite_t * bw) { return ftell(bw->fh); }
+
+/**
+ * @brief Checks if the stream is errored.
+ * @param bw Pointer to the stream.
+ * @returns Non-zero if the stream is errored, zero otherwise.
+ */
+static inline usize atlib_bufwrite_err(const bufwrite_t * bw) { return ferror(bw->fh); }
 
 #endif
