@@ -29,7 +29,7 @@ static usize __fill(bufread_t * self) {
 bufread_t * atlib_bufread_open(bufread_t * restrict self, const char * restrict file_path) {
     atlib_compassert(self);
 
-    FILE * fh = fopen(file_path, "w+");
+    FILE * fh = fopen(file_path, "r");
     if(fh == NULL) {
         return NULL;
     }
@@ -40,12 +40,6 @@ bufread_t * atlib_bufread_open(bufread_t * restrict self, const char * restrict 
     //if(__fill(self) == 0) return NULL;
 
     return self;
-}
-
-bufwrite_t * atlib_bufread_to_bufwrite(const bufread_t * restrict self, bufwrite_t * restrict new) {
-    atlib_compassert(self);
-    atlib_compassert(new);
-    return atlib_bufwrite_fopen(new, self->fh);
 }
 
 bufread_t * atlib_bufread_fopen(bufread_t * restrict self, FILE * restrict file) {
