@@ -101,7 +101,6 @@ isize atlib_bufread_readn(bufread_t * restrict self, void * restrict b, isize n)
         self->to_read--;
         n--;
     }
-    *(--buf) = 0;
 
     return r - n;
 }
