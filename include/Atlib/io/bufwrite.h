@@ -40,6 +40,7 @@ typedef struct {
  * @brief Initializes @c bw to buffer outgoing inforamtion to the file referred to by @c file_path.
  * @param bw Pointer to a @c bufwrite_t object.
  * @param file_path Path to file to open.
+ * @param br_flags Flags to configure this buffered stream. See @see bufread_flags.h
  * @returns @c bw, pointing to a valid @c bufwrite_t object on success, or @c nullptr on error.
  */
 extern bufwrite_t * atlib_bufwrite_open(bufwrite_t *__restrict bw, const char *__restrict file_path);

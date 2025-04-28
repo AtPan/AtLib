@@ -15,6 +15,8 @@
 #include <bits/stdint-intn.h>
 #include <bits/stdint-uintn.h>
 
+#define ATAPI extern __attribute__((nonnull, nothrow))
+
 #ifdef NULL
 #undef NULL
 #endif

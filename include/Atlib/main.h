@@ -7,6 +7,7 @@
  */
 
 #include "Atlib/io/bufread.h"
+#include "Atlib/io/bufwrite.h"
 
 #ifndef __ATLIB_NEED_MAIN
 
@@ -21,6 +22,7 @@
  * your program to avoid synchronization errors.
  */
 extern bufread_t * bufstdin;
+extern bufwrite_t * bufstdout;
 
 #else
 #include "types.h"

@@ -1,6 +1,8 @@
 #ifndef __ATLIB_STRING_H
 #define __ATLIB_STRING_H
 
+#error "The AtLib String module is not supported due to debug/release function collisions"
+
 #include "Atlib/types.h"
 
 /*! \defgroup string 
